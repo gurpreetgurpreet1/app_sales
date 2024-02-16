@@ -5,7 +5,7 @@ use App\Http\Controllers\LeadController;
 use App\Http\Controllers\SourceController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
-
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,8 +22,10 @@ Route::get('/', function () {
 });
 Auth::routes();
 
+//DashboardController
+Route::get('/dashboard',[DashboardController::class,'index']);
+
 //LeadController
-Route::get('/dashboard',[LeadController::class,'index']);
 Route::get('/lead',[LeadController::class,'form']);
 Route::post('/lead',[LeadController::class,'add']);
 Route::get('/delete/{id}',[LeadController::class,'deleteLead']);

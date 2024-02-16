@@ -68,5 +68,12 @@
     </tbody>
   </table>
 </div>
+
+<ul class="pagination">
+
+   {{ $productList->links() }}
+
+</ul>
+
 @include('modal.ProductModal')
 @endsection

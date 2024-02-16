@@ -3,3 +3,12 @@
 .modal{
     width:100% !important;
 }
+.container .col-md-6{
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.btn-lead{
+    margin-top:15px;
+    margin-bottom:15px;
+
+} 

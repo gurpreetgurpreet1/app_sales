@@ -13,10 +13,10 @@ class ProductController extends Controller
         $success_msg =  $request->session()->get('success');
         $error_msg =  $request->session()->get('error');
 
-        $productList = product::all();
+        $productList = product::simplePaginate(10);
         $data = productCategory::all();
 
-    return view('pages.product',['success_msg' => $success_msg,'error_msg' => $error_msg ,'productList' => $productList,'output' => $data ]);
+     return view('pages.product',['success_msg' => $success_msg,'error_msg' => $error_msg ,'productList' => $productList,'output' => $data ]);
   
        }
       public function add(Request $request){

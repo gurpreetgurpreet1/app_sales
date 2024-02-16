@@ -19,11 +19,9 @@
 
 </div>
 
-
-
 <div class="table-responsive">    
-<button class="btn btn-primary btn-lead" >ADD LEAD</button>      
-  <table class="table">
+<button class="btn btn-sm btn-primary btn-lead " >ADD LEAD</button>      
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Id</th>
@@ -59,8 +57,12 @@
         <td><?php echo $val->getProduct->name;?></td>
         <td><?php echo $val->getSource->name;?></td>
         <td><img style="width:100px;height:120px;" src="/images/<?php echo $val['picture']; ?>"/> </td>
-        <td><a class="btn btn-danger" href="{{url ('delete',$val->id )}}">DELETE</a>
-        <a class="btn btn-primary" href="{{url ( 'lead',$val->id)}}">EDIT</a></td>
+        <td>
+          <div class="btn-group">
+            <a class="btn btn-sm btn-danger" href="{{url ('delete',$val->id )}}">DELETE</a>
+            <a class="btn btn-sm btn-primary" href="{{url ( 'lead',$val->id)}}">EDIT</a>
+          </div>
+        </td>
       </tr>
     
       <?php
@@ -70,6 +72,12 @@
     </tbody>
   </table>
 </div>
+
+<ul class="pagination">
+
+   {{ $lead->links() }}
+
+</ul>
 
 
 @include('modal.LeadModal')

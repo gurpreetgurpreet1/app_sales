@@ -11,11 +11,11 @@ use App\Models\product;
 class LeadController extends Controller
 {
   
-  public function index(){
+  // public function index(){
 
-    return view('pages.dashboard');
+  //   return view('pages.dashboard');
 
-  }
+  // }
   public function form(Request $request){
 
     $success_msg =  $request->session()->get('success');
@@ -23,7 +23,7 @@ class LeadController extends Controller
 
     $data = source::all();
     $detail = product::all();
-    $lead = lead::all();
+    $lead = lead::simplePaginate(10);
 
     return view('pages.lead',['success_msg' => $success_msg,'error_msg' => $error_msg ,'data' => $data , 'detail' => $detail , 'lead' => $lead]);
   }
