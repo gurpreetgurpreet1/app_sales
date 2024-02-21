@@ -17,4 +17,8 @@ class lead extends Model
     {
         return $this->hasOne(product::class,'id','product');
     }
+    public function getFollowup()
+    {
+        return $this->hasMany(followup::class,'lead_id','id');
+    }
 }

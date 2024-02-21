@@ -6,6 +6,7 @@ use App\Http\Controllers\SourceController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FollowUpController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,11 +25,12 @@ Auth::routes();
 
 //DashboardController
 Route::get('/dashboard',[DashboardController::class,'index']);
-
+Route::post('/dashboard',[DashboardController::class,'output']);
+Route::get('/lead/history/{id}',[DashboardController::class,'history']);
 //LeadController
 Route::get('/lead',[LeadController::class,'form']);
 Route::post('/lead',[LeadController::class,'add']);
-Route::get('/delete/{id}',[LeadController::class,'deleteLead']);
+Route::get('/deleteData/{id}',[LeadController::class,'deleteLead']);
 Route::get('/lead/{id}',[LeadController::class,'edit']);
 Route::post('/lead/{id}',[LeadController::class,'update']);
 //SourceController
@@ -44,3 +46,6 @@ Route::post('/product',[ProductController::class,'add']);
 Route::get('/delete/{id}',[ProductController::class,'delete']);
 Route::get('/product/edit/{id}',[ProductController::class,'edit']);
 Route::post('/product/edit',[ProductController::class,'updateProduct']);
+//FollowUpController
+// Route::get('/followUp',[FollowUpController::class,'form']);
+// Route::post('/followUp',[FollowUpController::class,'add']);

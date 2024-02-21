@@ -16,7 +16,6 @@
 </div>
 <?php } ?>
 
-
 </div>
 
 <div class="table-responsive">    
@@ -35,15 +34,20 @@
         <th>Address</th>
         <th>Product</th>
         <th>Source</th>
-        <th>Picture</th>
+        <th>Status</th>
+        <th>Source</th>
+        <th>Remarks</th>
+        <th>Next Meeting</th>
         <th>Operation</th>
 
       </tr>
     </thead>
     <tbody>
     
-        <?php foreach ($lead as $key => $val){ ?>
+        <?php foreach ($lead as $key => $val){ 
         
+          $product = $val->getProduct;
+          ?>
        <tr>
         <td><?php echo $val->id;?></td>
         <td><?php echo $val->name;?></td>
@@ -54,12 +58,15 @@
         <td><?php echo $val->city;?></td>
         <td><?php echo $val->pin;?></td>
         <td><?php echo $val->address;?></td>
-        <td><?php echo $val->getProduct->name;?></td>
+        <td><?php echo ($product && isset($product->name))? $product->name:'';?></td>
         <td><?php echo $val->getSource->name;?></td>
+        <td><?php echo $val->status;?></td>
+        <td><?php echo $val->remarks;?></td>
         <td><img style="width:100px;height:120px;" src="/images/<?php echo $val['picture']; ?>"/> </td>
+        <td><?php echo $val->next_meeting;?></td>
         <td>
           <div class="btn-group">
-            <a class="btn btn-sm btn-danger" href="{{url ('delete',$val->id )}}">DELETE</a>
+            <a class="btn btn-sm btn-danger" href="{{url ('deleteData',$val->id )}}">DELETE</a>
             <a class="btn btn-sm btn-primary" href="{{url ( 'lead',$val->id)}}">EDIT</a>
           </div>
         </td>

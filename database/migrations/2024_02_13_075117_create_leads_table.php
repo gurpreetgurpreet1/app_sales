@@ -24,6 +24,9 @@ return new class extends Migration
             $table->string('product')->nullable();
             $table->string('source_id')->nullable();
             $table->string('picture')->nullable();
+            $table->string('remarks')->nullable();
+            $table->string('status')->nullable();
+            
             $table->timestamps();
         });
     }

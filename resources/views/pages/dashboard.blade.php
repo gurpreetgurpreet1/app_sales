@@ -1,7 +1,21 @@
 @extends('layouts.mainlayout')
 @section('content')
 
-<div class="table-responsive">    
+
+<!-- <h2 style="text-align:center">LEADS</h2> -->
+
+<div class="table-responsive table-bordered">   
+  
+  <div class="filter-container">
+
+    <form  action="/dashboard" method="post">
+  
+      <input type="date" id="leadDate" name="leadDate">
+      <button class="btn btn-sm btn-primary" type="submit" >Submit</button>
+      @csrf
+  </form>
+
+  </div>
 
   <table class="table">
     <thead>
@@ -17,15 +31,23 @@
         <th>Address</th>
         <th>Product</th>
         <th>Source</th>
+        <th>Status</th>
+        <th>Remarks</th>
         <th>Picture</th>
+        <th>Active</th>
       </tr>
     </thead>
     <tbody>
     
-        <?php foreach ($data as $key => $val){ 
-            
-           
-            
+        <?php
+        
+        foreach ($data as $key => $val) {   
+
+          $product = $val->getProduct;
+          $source = $val->getSource;    
+          // dd($source);
+          // print_r($val->source_id);die;
+
             ?>   
        <tr>
         <td><?php echo $val->id;?></td>
@@ -37,11 +59,14 @@
         <td><?php echo $val->city;?></td>
         <td><?php echo $val->pin;?></td>
         <td><?php echo $val->address;?></td>
-        <td><?php echo $val->getProduct->name;?></td>
-        <td><?php echo $val->getSource->name;?></td>
-        <td><img style="width:100px;height:120px;" src="/images/<?php echo $val['picture']; ?>"/> </td>
-        <!-- <td><a class="btn btn-danger" href="{{url ('delete',$val->id )}}">DELETE</a>
-        <a class="btn btn-primary" href="{{url ( 'lead',$val->id)}}">EDIT</a></td> -->
+        <td><?php echo ($product && isset($product->name))? $product->name:'';?></td>
+        <td><?php echo ($source && isset($source->name))?$source->name:'';?></td>
+        <td><img style="width:60px;height:70px;" src="/images/<?php echo $val['picture']; ?>"/> </td>
+        <td><?php echo $val->status;?></td>
+        <td><?php echo $val->remarks;?></td>
+        <td><a class="fa fa-history"  href="{{url ('lead/history',$val->id ) }}" ></a></td>
+       
+      
       </tr>
     
       <?php

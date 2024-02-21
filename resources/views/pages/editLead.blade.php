@@ -97,6 +97,12 @@
       <input type="file" class="form-control" id="Picture" placeholder="Enter picture" name="picture">
     </div>
     @csrf
+
+    <div class="form-group">
+      <b for="category">NextMeeting:</b>
+      <input type="date" class="form-control" id="NextMeeting" placeholder="Enter NextMeeting" name="next_meeting" value="{{ $editDetail->next_meeting }}">
+    </div>
+
     <button type="submit" class="btn btn-primary">SAVE</button>
   </form>
 </div>

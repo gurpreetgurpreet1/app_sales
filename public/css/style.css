@@ -7,8 +7,28 @@
     padding-top:10px;
     padding-bottom:10px;
 }
+.wcp-pull-right{
+  margin-top:5px;
+  margin-bottom: 5px;
+  float:right;
+}
 .btn-lead{
     margin-top:15px;
     margin-bottom:15px;
 
 } 
+img {
+    border-radius: 50%;
+  }
+  .filter-container form{
+    padding:20px;
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(45,56,253,1) 100%);  
+    display:flex;
+    align-items:center;
+  }
+  .filter-container form button{
+    margin-left:5px;
+    border-radius:0px;
+    background:#000 !important;
+  }

@@ -7,6 +7,7 @@ use App\Models\lead;
 
 use App\Models\source;
 use App\Models\product;
+use App\Models\followup;
 
 class LeadController extends Controller
 {
@@ -45,6 +46,11 @@ public function add(Request $request){
         'product' => ['required'],
         'source_id' => ['required'],
         'picture' => ['required'],
+        'next_meeting' => ['required'],
+        'status' => ['required'],
+        'remarks' => ['required'],
+
+         'attachment' => ['required'],
           
       ]);
 
@@ -64,6 +70,9 @@ public function add(Request $request){
       $lead->address = $request->input('address');
       $lead->product = $request->input('product');
       $lead->source_id = $request->input('source_id');
+      $lead->next_meeting = $request->input('next_meeting');
+      $lead->status = $request->input('status');
+      $lead->remarks = $request->input('remarks');
       $lead->picture = $imageName;
 
       if($lead->save()){
@@ -75,8 +84,25 @@ public function add(Request $request){
          $request->session()->flash('error','something went wrong. Please try again!');
 
       }
+       $id = $lead->id;
 
-  return redirect('/lead');
+      $follow = new followup();
+      $follow->lead_id = $id;
+      $follow->status = $request->input('status');
+      $follow->remarks = $request->input('remarks');
+      // $follow->attachment = $request->input('attachment');
+
+      if($follow->save()){
+
+        $request->session()->flash('success',' Lead created successfully');
+
+      } else {
+
+         $request->session()->flash('error','something went wrong. Please try again!');
+
+      }
+
+   return redirect('/lead');
   
 }
   public function deleteLead($id=null){
@@ -123,9 +149,11 @@ public function add(Request $request){
     $product->product = $request->product;
     $product->source_id = $request->source_id;
     $product->picture = $imageName;
+    $product->next_meeting = $request->next_meeting;
     $product->save();
 
     return redirect('/lead/'.$request->id)->with('success','Entry edit successfully!');
 
   }
+
 }

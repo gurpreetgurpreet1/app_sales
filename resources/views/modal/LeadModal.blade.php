@@ -11,7 +11,7 @@
             Add Lead
         </div>
         
-        <form action="/lead" method="post" enctype="multipart/form-data">
+     <form action="/lead" method="post" enctype="multipart/form-data">
         <div class="modal-body">
 
             <div class="container">
@@ -41,7 +41,6 @@
                                 <p for="category">Phone:</p>
                                 <input type="text" class="form-control" id="phone" placeholder="Enter phone" name="phone">
                             </div>
-
 
                         
                         </div>
@@ -136,15 +135,49 @@
 
                         </div>
 
+                        <div class="col-md-6 col-lg-6">
 
+                            <div class="form-group">
+                              <p for="category">NextMeeting:</p>
+                              <input type="date" class="form-control" id="NextMeeting" placeholder="Enter NextMeeting" name="next_meeting">
+                            </div>
 
+                        </div>
+
+                     <div class="col-md-6 col-lg-6">
+
+                         <div class="form-group">
+                             <p for="category">Status:</p>
+                             <select class="form-control" name="status" id="sel1">
+                                <option>cold</option>
+                                <option>hot</option>
+                                <option>nice</option>
+                                <option>warm</option>
+                                <option>immediate</option>
+                            </select
+                         </div>
+
+                     </div>
+
+                     <div class="col-md-6 col-lg-6">
+                        <div class="form-group">
+                          <p for="category">Remarks:</p>
+                          <input type="text" class="form-control" id="Remarks" placeholder="Enter Remarks" name="remarks">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-6">
+
+                        <div class="form-group">
+                          <p for="category">Attachment:</p>
+                          <input type="text" class="form-control" id="attachment" placeholder="Enter attachment" name="attachment">
+                        </div>
 
                     </div>
 
-
+                    </div>
 
             </div>
-
 
         </div>
         <div class="modal-footer">

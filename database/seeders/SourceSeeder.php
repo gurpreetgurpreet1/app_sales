@@ -13,6 +13,6 @@ class SourceSeeder extends Seeder
      */
     public function run(): void
     {
-        source::factory()->count(100)->create();
+        source::factory()->count(30)->create();
     }
 }
