@@ -27,6 +27,7 @@ Auth::routes();
 Route::get('/dashboard',[DashboardController::class,'index']);
 Route::post('/dashboard',[DashboardController::class,'output']);
 Route::get('/lead/history/{id}',[DashboardController::class,'history']);
+Route::get('/dashboard',[DashboardController::class,'index']);
 //LeadController
 Route::get('/lead',[LeadController::class,'form']);
 Route::post('/lead',[LeadController::class,'add']);
@@ -46,6 +47,6 @@ Route::post('/product',[ProductController::class,'add']);
 Route::get('/delete/{id}',[ProductController::class,'delete']);
 Route::get('/product/edit/{id}',[ProductController::class,'edit']);
 Route::post('/product/edit',[ProductController::class,'updateProduct']);
-//FollowUpController
-// Route::get('/followUp',[FollowUpController::class,'form']);
+// FollowUpController
+Route::post('/followup/update',[FollowUpController::class,'output']);
 // Route::post('/followUp',[FollowUpController::class,'add']);

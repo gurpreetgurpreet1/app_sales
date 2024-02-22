@@ -61,6 +61,7 @@
             <h6 class="m-2 font-weight-bold text-primary">Image : <spam><img style="width:30px;height:40px;" src="/images/<?php echo $lead->picture; ?>"/></spam></h6>
         </div>
 
+
     </div> 
             </div>
             <div class="card-body">
@@ -87,18 +88,28 @@
                                     <td><?php echo $val->next_meeting; ?></td>
                                     <td><?php echo $val->remarks ?></td>
                                     <td><?php echo $val->status;?></td>
-                                    <td><?php echo $val->lead_id?></td>
                                 </tr>
 
                                 <?php
                                     }else{
                                 ?>
+
+                                <div class="message"> </div>
+                                <div class="wcp-error"> </div>
+                                <input type="hidden" class="form-control followup_id" id="followup_id"  value="<?php echo $val->id; ?>">
                                 <tr>
                                 <td>
                                    <div class="form-group">  
                                         <!-- <b for="status">Remarks:</b> -->
                                         <input type="date" class="form-control pending_next_meeting" id="next_meeting" placeholder="Enter Next_meeting" name="next_meeting">
                                     </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="form-group">  
+                                            <!-- <b for="status">Remarks:</b> -->
+                                            <input type="text" class="form-control pending_remarks" id="remarks" placeholder="Enter remarks" name="remarks">
+                                        </div>
                                     </td>
 
                                     <td>
@@ -110,13 +121,6 @@
                                                 <option>warm</option>
                                                 <option>immediate</option>
                                             </select>
-                                        </div>
-                                    </td>
-
-                                    <td>
-                                        <div class="form-group">  
-                                            <!-- <b for="status">Remarks:</b> -->
-                                            <input type="text" class="form-control pending_remarks" id="remarks" placeholder="Enter remarks" name="remarks">
                                         </div>
                                     </td>
 
